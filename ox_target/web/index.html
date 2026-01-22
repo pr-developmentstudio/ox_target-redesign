@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script>
+      // Forzar transparencia inmediatamente y continuamente
+      function forceTransparency() {
+        document.documentElement.style.background = 'transparent';
+        document.body.style.background = 'transparent';
+        document.body.style.backgroundColor = 'transparent';
+        
+        // Forzar en todos los elementos
+        const allElements = document.querySelectorAll('*');
+        allElements.forEach(el => {
+          if (!el.classList.contains('option-container')) {
+            el.style.background = 'transparent';
+            el.style.backgroundColor = 'transparent';
+          }
+        });
+      }
+      
+      // Ejecutar inmediatamente
+      forceTransparency();
+      
+      // Ejecutar cada 100ms para asegurar
+      setInterval(forceTransparency, 100);
+    </script>
+    <div id="eye">
+      <svg id="eyeSvg" xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px">
+        <!-- Capa exterior -->
+        <path d="M12 1 L23 12 L12 23 L1 12 Z" fill="none" stroke="white" stroke-width="2"/>
+        <!-- Capa intermedia más delgada -->
+        <path d="M12 4 L20 12 L12 20 L4 12 Z" fill="none" stroke="white" stroke-width="0"/>
+        <!-- Diamante interior sólido -->
+        <path d="M12 7 L17 12 L12 17 L7 12 Z" fill="white"/>
+      </svg>
+    </div>
+    <div id="options-wrapper">
+        <div class="option-container">
+            <div class="option-icon">🎯</div>
+            <div class="option-label" data-text="ox_target">ox_target</div>
+        </div>
+    </div>
+    <script defer type="module" src="js/main.js"></script>
+  </body>
+</html>
